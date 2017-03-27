@@ -1,0 +1,767 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="系列," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="在进行人员招聘面试时，经常会问到对方的个人职业规划，很多人（超过70%以上）的回答都是先做一段时间的技术，然后考虑向管理方向发展。
+
+机：管理是很多人期望从事的岗位。
+
+我这个年纪的人，在小时候经常会被家长告知，长大了要当官，当大官。因此，当官，无论在政府还是企业当官，是很多人的梦想。我们想到做管理，就会想到钱多、人脉广、权力大，衣着光鲜，有面子。在朋友见面的时候，如果来一个介绍：我是XX公司的总">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目管理（一）">
+<meta property="og:url" content="https://wangazhang.github.io/2017/03/27/projectMgr-01/index.html">
+<meta property="og:site_name" content="王阿章’博客">
+<meta property="og:description" content="在进行人员招聘面试时，经常会问到对方的个人职业规划，很多人（超过70%以上）的回答都是先做一段时间的技术，然后考虑向管理方向发展。
+
+机：管理是很多人期望从事的岗位。
+
+我这个年纪的人，在小时候经常会被家长告知，长大了要当官，当大官。因此，当官，无论在政府还是企业当官，是很多人的梦想。我们想到做管理，就会想到钱多、人脉广、权力大，衣着光鲜，有面子。在朋友见面的时候，如果来一个介绍：我是XX公司的总">
+<meta property="og:updated_time" content="2017-03-27T10:06:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="项目管理（一）">
+<meta name="twitter:description" content="在进行人员招聘面试时，经常会问到对方的个人职业规划，很多人（超过70%以上）的回答都是先做一段时间的技术，然后考虑向管理方向发展。
+
+机：管理是很多人期望从事的岗位。
+
+我这个年纪的人，在小时候经常会被家长告知，长大了要当官，当大官。因此，当官，无论在政府还是企业当官，是很多人的梦想。我们想到做管理，就会想到钱多、人脉广、权力大，衣着光鲜，有面子。在朋友见面的时候，如果来一个介绍：我是XX公司的总">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wangazhang.github.io/2017/03/27/projectMgr-01/"/>
+
+
+
+
+
+  <title> 项目管理（一） | 王阿章’博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王阿章’博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">the blog of wangazhang</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://wangazhang.github.io/2017/03/27/projectMgr-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangazhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王阿章’博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                项目管理（一）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-27T16:25:09+08:00">
+                2017-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/项目管理/" itemprop="url" rel="index">
+                    <span itemprop="name">项目管理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在进行人员招聘面试时，经常会问到对方的个人职业规划，很多人（超过70%以上）的回答都是先做一段时间的技术，然后考虑向管理方向发展。</p>
+<blockquote>
+<p>机：管理是很多人期望从事的岗位。</p>
+</blockquote>
+<p>我这个年纪的人，在小时候经常会被家长告知，长大了要当官，当大官。因此，当官，无论在政府还是企业当官，是很多人的梦想。<br>我们想到做管理，就会想到钱多、人脉广、权力大，衣着光鲜，有面子。在朋友见面的时候，如果来一个介绍：我是XX公司的总监、CxO，就会虚荣心膨胀。<br>不过，在当前的环境下，随着管理的科学化和经济的多变性，管理已经不再是原来想象中那样美好了。</p>
+<blockquote>
+<p>危：管理者不是铁饭碗，更不是金饭碗，只是一个职位，别跳进了管理危机的大坑中</p>
+</blockquote>
+<h2 id="你的身边是否有如下的案例："><a href="#你的身边是否有如下的案例：" class="headerlink" title="你的身边是否有如下的案例："></a>你的身边是否有如下的案例：</h2><pre><code>在工作三年后，小李加入一个发展较好公司的IT部门，负责进行软件开发工作。随着公司项目越来越多，部门经理发现自己一个人开始无法兼顾所有的项目进度了，需要在内部提拔一个项目经理，负责一类项目的研发管理工作，以便于分担个人的管理负担。
+小李在加入公司半年多以来，由于刚刚入职，要好好表现自己，所以主动性和责任心非常好，技术能力也能够满足现阶段的项目需要。小李进入了部门经理的提拔名单，于是，顺理成章，小李带着3、5个兄弟开启了他的管理生涯，实现技术向管理的转型。
+在传统IT企业，项目经理所做的管理非常简单，基本上是确定技术架构、制定项目计划，将任务分配给手下兄弟干，监督一下项目进度，处理一下成员遇到的问题，能够按时交付项目就好了，这些小李处理起来得心应手，得到了部门经理的信任。
+随着时间的推移，公司效益表现也比较好，原来的部门经理已经升为了部门总监，小李也跟着晋级到了技术经理，薪酬也实现了翻倍增长。
+在这段时间里，小李早已经不需要自己写代码了，由于公司压力不大，每天的工作也很悠闲，技术还是原来的技术，唯一麻烦的是就是和销售部门确认时间进度，来回扯皮。不过，小李很享受现在的工作状态，觉得现在还不错。
+就这样，4、5年的时间过去了，小李贷款买了房子，组建了家庭，有了自己的孩子，还买了车子，但是，公司的经营状况却越来越不理想，项目越来越少，公司计划开启裁员计划，小李在这个时候真的慌了。
+由于待在传统企业，技术能力基本上提升很小，而且也不再愿意去从事技术工作；虽然公司也经常进行一些管理人员的培训，但也多是听听就算了，没有形成理论，也没有在实际中积累多少经验；而且，人已经到了30好几，在市场上的竞争力直线下降，如果被裁，以什么样的能力去市场上竞争呢？小李陷入了焦虑之中。
+</code></pre><p>随着职业经理人的发展，管理真正变成了一个职业，和程序员一样，不要再将其官位化。</p>
+<h2 id="什么样的人适合从事管理职业？"><a href="#什么样的人适合从事管理职业？" class="headerlink" title="什么样的人适合从事管理职业？"></a>什么样的人适合从事管理职业？</h2><p>虽然现在很多人从事的是管理工作，做的是管理的事情，但是，管理，真的是一个风险很高的职业，尤其不适合养老的思想。</p>
+<p>那么，什么样的人适合从事管理呢？我们先回答一下以下的问题：</p>
+<p>1、你是一个原则性很强的人吗？</p>
+<p>a、是； b、不是； c、看情况；d、不知道。</p>
+<p>2、假如你现在已经实现了财务自由，你会？</p>
+<p>a、好吃懒做；b、周游世界；c、自己创业；d、不知道。</p>
+<p>3、你怎么看待乐天集团事件？</p>
+<p>a、坚决抵制，从我做起；b、别人都抵制，我也抵制；c、政治游戏；d、不关心。</p>
+<p>4、当你觉得是爱人的问题，从而和老婆闹矛盾时，你会？</p>
+<p>a、不理她，等她道歉；b、买花给她，求她原谅；c、找个时机好好和她谈谈；d、过几天就好了；</p>
+<p>5、当你被领导指派了一个非本职工作的紧急事情时，你会？</p>
+<p>a、告诉领导不是我的事；b、表示有更重要的事情要做；c、先做，然后再谈问题；d、讲条件。</p>
+<p>6、当你想到一个好的发财点子时，你会？</p>
+<p>a、自己偷偷去做；b、想想就好了；c、讲给别人听；d、拉其他人入伙开干。</p>
+<p>7、当你由于非自己原因导致事情搞砸时，你会？</p>
+<p>a、解释原因，保护自己；b、指责别人，推卸责任；c、承认错误，组织改正；d、无所谓。</p>
+<p>8、当你工作完成后，发现没有事情可做的时候，你会？</p>
+<p>a、看小说，玩游戏；b、找人聊天；c、看看有没有遗漏；d、看书学习。</p>
+<p>9、你在招聘一个关键岗位人员，一个30万年薪的合格者、一个15万年薪可培养者和一个60万年薪的最佳者，你会招聘哪一个？</p>
+<p>a、30万；b、15万；c、60万；d、让领导想吧。</p>
+<p>以上的问题，我期望的正确答案都是c，对应着职业管理的9种基本素质要求。</p>
+<h2 id="管理职业的基本素质要求"><a href="#管理职业的基本素质要求" class="headerlink" title="管理职业的基本素质要求"></a>管理职业的基本素质要求</h2><h3 id="政治觉悟"><a href="#政治觉悟" class="headerlink" title="政治觉悟"></a>政治觉悟</h3><p>职业管理者要具备基础的政治觉悟，做事有底线、讲原则，要有基本的职业操守。很多技术人员转型管理时，首先要面对的就是这个问题。大多数技术人员逻辑思维能力很清晰，但是，在进行公司政治处理时，往往会落於下风，成功的管理者政治觉悟都比较高。</p>
+<h3 id="进取精神"><a href="#进取精神" class="headerlink" title="进取精神"></a>进取精神</h3><p>一个没有进取精神的管理者，终究会被淘汰的。职业管理者的欲望要很强烈，无论是权利、金钱、绩效还是其他方面。当然，我们推崇的方法永远是通过正向手段达到的进取，而不是阴谋诡计。初涉管理时，可能大家都不缺进取精神，麻烦的是，长时间之后的疲惫期，一旦感觉到疲惫时，就是你走下坡路的开始。</p>
+<p>进入管理职业，只能往前，不能后退。</p>
+<h3 id="大局观"><a href="#大局观" class="headerlink" title="大局观"></a>大局观</h3><p>大局观体现在多个方面，大到整个公司，也可能只是一个系统，因此，判断一个人有没有大局观，对于IT人员来说，看看他能不能将整体架构说清楚；当两个衔接部门起冲突时，他的应对方式是什么？</p>
+<p>大局观是对整体的分析思维，如果只局限于自己的范畴，发展终将受限。</p>
+<h3 id="沟通协调"><a href="#沟通协调" class="headerlink" title="沟通协调"></a>沟通协调</h3><p>你是一个能说会到的人吗？在处理冲突时，是否能够平衡各方利益？沟通协调在管理中所占的比重非常高，有些人可以游刃有余，而有些人则会处处受制，无关职位高低。</p>
+<h3 id="责任心"><a href="#责任心" class="headerlink" title="责任心"></a>责任心</h3><p>责任心强调的是心，而不是责任。我们每个人都背负很多责任，但是，不是每个人都在用心对待。</p>
+<h3 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h3><p>财聚人散，财散人聚。分享并不仅仅是分享金钱，包括思维、权利、知识、方法等，当然，也有钱财。懂得分享，才会收获更多。</p>
+<h3 id="担当"><a href="#担当" class="headerlink" title="担当"></a>担当</h3><p>担当更重要的是承担后果。一个公司的高层，在年初制定了考核目标，最终有80%的人没有达到要求，如果你是这些人中的一员，你会怎么做？如果你是公司董事长，你会怎么看待这些人？</p>
+<h3 id="主动性"><a href="#主动性" class="headerlink" title="主动性"></a>主动性</h3><p>你是一个喜欢主动索要工作的人，还是一个被动等待指派任务的人？你能否发现并提出问题及解决方案？在遇到问题时，你是积极解决还是拖延处理？</p>
+<h3 id="冷静果断"><a href="#冷静果断" class="headerlink" title="冷静果断"></a>冷静果断</h3><p>这里其实更多强调的是果断，有些时候，有些事情，拖得越久，处理成本会越高。</p>
+<p>有个典故：添油战术。管理者在处理问题时，一定要避免，如果必须解决，那就要解决就一次性解决。现实中你会发现很多真实的案例：为了节省成本，公司一直在招比较差的人；以指标的方式不断修补漏洞；开始想象很美好，投入了一个项目，一直不断投入，就是不见回报，但又不舍得放弃。</p>
+<p>管理是一个在处理麻烦的同时，还得有突破的职位，做和做好之间的差别天差地远。因此，在被管理职位诱惑之前，冷静想想，管理是否符合我的自身条件，然后再决定是否投入其中，是非常有必要的。<br>这是项目管理的第一章，之所以有该章节，是因为IT行业，大多数的技术管理岗人员都是从技术转型而来，而有时候在很多公司，似乎只有向管理转型的少数发展方向，因此，以此文章来问问自己，我是不是真的适合管理？</p>
+<p>从做管理开始，你的核心竞争力已经不再是技术，管理方法只是管理的辅助手段，它决定的只是工具和技术问题，无法解决管理成败问题，成败来源于你的基本素质。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/系列/" rel="tag"># 系列</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/22/something-of-redis-02/" rel="next" title="something-of-redis_02">
+                <i class="fa fa-chevron-left"></i> something-of-redis_02
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="wangazhang" />
+          <p class="site-author-name" itemprop="name">wangazhang</p>
+           
+              <p class="site-description motion-element" itemprop="description">something to do,but something not</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#你的身边是否有如下的案例："><span class="nav-number">1.</span> <span class="nav-text">你的身边是否有如下的案例：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么样的人适合从事管理职业？"><span class="nav-number">2.</span> <span class="nav-text">什么样的人适合从事管理职业？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理职业的基本素质要求"><span class="nav-number">3.</span> <span class="nav-text">管理职业的基本素质要求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#政治觉悟"><span class="nav-number">3.1.</span> <span class="nav-text">政治觉悟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进取精神"><span class="nav-number">3.2.</span> <span class="nav-text">进取精神</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大局观"><span class="nav-number">3.3.</span> <span class="nav-text">大局观</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#沟通协调"><span class="nav-number">3.4.</span> <span class="nav-text">沟通协调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#责任心"><span class="nav-number">3.5.</span> <span class="nav-text">责任心</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分享"><span class="nav-number">3.6.</span> <span class="nav-text">分享</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#担当"><span class="nav-number">3.7.</span> <span class="nav-text">担当</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主动性"><span class="nav-number">3.8.</span> <span class="nav-text">主动性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#冷静果断"><span class="nav-number">3.9.</span> <span class="nav-text">冷静果断</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wangazhang</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
