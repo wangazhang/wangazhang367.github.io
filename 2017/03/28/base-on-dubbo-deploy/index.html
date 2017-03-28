@@ -87,25 +87,22 @@
 
 
 
-<meta name="description" content="#开场问题#上期遗留了2个问题如何查看网络流量问题redis为什么会不进行增量，而选择全量的复制
-##如何查看网络流量问题这个有多个工具，我这边给大家推荐的是’nload’
-上个图
-##redis为什么会不进行增量，而选择全量的复制这个问题">
+<meta name="description" content="脸谱技术架构经历了从无到有，从单一到多元，从简单到复杂的过程。不过最近大家应该都能深刻的体会到：一直以来我们也未能避免平滑发布这件事。过去我们可能只需要简单的发布一两个服务，就完成了一次发布，但是随着系统的拆分，我们逐步完成了单一系统的拆分，服务化，以及稍后就要动手的微服务拆分，这个过程我们渐渐发现平滑发布的重要性，因为服务已经变成了上百个，而且还在呈现扩张的趋势，过去的这种发布形式若要影响面够">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于redis的那些事（二）">
-<meta property="og:url" content="https://wangazhang.github.io/2017/03/22/something-of-redis-02/index.html">
+<meta property="og:title" content="基于dubbo的平滑部署设计">
+<meta property="og:url" content="https://wangazhang.github.io/2017/03/28/base-on-dubbo-deploy/index.html">
 <meta property="og:site_name" content="王阿章’博客">
-<meta property="og:description" content="#开场问题#上期遗留了2个问题如何查看网络流量问题redis为什么会不进行增量，而选择全量的复制
-##如何查看网络流量问题这个有多个工具，我这边给大家推荐的是’nload’
-上个图
-##redis为什么会不进行增量，而选择全量的复制这个问题">
-<meta property="og:updated_time" content="2017-03-27T12:30:20.000Z">
+<meta property="og:description" content="脸谱技术架构经历了从无到有，从单一到多元，从简单到复杂的过程。不过最近大家应该都能深刻的体会到：一直以来我们也未能避免平滑发布这件事。过去我们可能只需要简单的发布一两个服务，就完成了一次发布，但是随着系统的拆分，我们逐步完成了单一系统的拆分，服务化，以及稍后就要动手的微服务拆分，这个过程我们渐渐发现平滑发布的重要性，因为服务已经变成了上百个，而且还在呈现扩张的趋势，过去的这种发布形式若要影响面够">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/14906834107816.png">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/14906835833854.png">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/14906836026972.png">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/14906836356449.png">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/14906837414361.png">
+<meta property="og:updated_time" content="2017-03-28T06:58:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于redis的那些事（二）">
-<meta name="twitter:description" content="#开场问题#上期遗留了2个问题如何查看网络流量问题redis为什么会不进行增量，而选择全量的复制
-##如何查看网络流量问题这个有多个工具，我这边给大家推荐的是’nload’
-上个图
-##redis为什么会不进行增量，而选择全量的复制这个问题">
+<meta name="twitter:title" content="基于dubbo的平滑部署设计">
+<meta name="twitter:description" content="脸谱技术架构经历了从无到有，从单一到多元，从简单到复杂的过程。不过最近大家应该都能深刻的体会到：一直以来我们也未能避免平滑发布这件事。过去我们可能只需要简单的发布一两个服务，就完成了一次发布，但是随着系统的拆分，我们逐步完成了单一系统的拆分，服务化，以及稍后就要动手的微服务拆分，这个过程我们渐渐发现平滑发布的重要性，因为服务已经变成了上百个，而且还在呈现扩张的趋势，过去的这种发布形式若要影响面够">
+<meta name="twitter:image" content="http://onaqzli6n.bkt.clouddn.com/14906834107816.png">
 
 
 
@@ -133,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="https://wangazhang.github.io/2017/03/22/something-of-redis-02/"/>
+  <link rel="canonical" href="https://wangazhang.github.io/2017/03/28/base-on-dubbo-deploy/"/>
 
 
 
 
 
-  <title> 关于redis的那些事（二） | 王阿章’博客 </title>
+  <title> 基于dubbo的平滑部署设计 | 王阿章’博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -268,7 +265,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://wangazhang.github.io/2017/03/22/something-of-redis-02/">
+    <link itemprop="mainEntityOfPage" href="https://wangazhang.github.io/2017/03/28/base-on-dubbo-deploy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wangazhang">
@@ -289,7 +286,7 @@
             
             
               
-                关于redis的那些事（二）
+                基于dubbo的平滑部署设计
               
             
           </h1>
@@ -304,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-22T17:08:49+08:00">
-                2017-03-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-28T13:43:11+08:00">
+                2017-03-28
               </time>
             
 
@@ -362,10 +359,44 @@
       
 
       
-        <p>#开场问题#<br>上期遗留了2个问题<br>如何查看网络流量问题<br>redis为什么会不进行增量，而选择全量的复制</p>
-<p>##如何查看网络流量问题<br>这个有多个工具，我这边给大家推荐的是’nload’</p>
-<p>上个图</p>
-<p>##redis为什么会不进行增量，而选择全量的复制<br>这个问题</p>
+        <blockquote>
+<p>脸谱技术架构经历了从无到有，从单一到多元，从简单到复杂的过程。不过最近大家应该都能深刻的体会到：一直以来我们也未能避免平滑发布这件事。<br>过去我们可能只需要简单的发布一两个服务，就完成了一次发布，但是随着系统的拆分，我们逐步完成了单一系统的拆分，服务化，以及稍后就要动手的微服务拆分，这个过程我们渐渐发现平滑发布的重要性，因为服务已经变成了上百个，而且还在呈现扩张的趋势，过去的这种发布形式若要影响面够小，我们必须停机，这是不能容忍的。</p>
+</blockquote>
+<p>因此这次我们需要对非停机发布下的平滑部署做一个认识。<br><a id="more"></a><br>这里我抛砖引玉，讲解下 </p>
+<h1 id="如何利用dubbo进行平滑部署"><a href="#如何利用dubbo进行平滑部署" class="headerlink" title="如何利用dubbo进行平滑部署"></a>如何利用dubbo进行平滑部署</h1><p>这里先提几个概念：灰度测试、平滑部署</p>
+<ul>
+<li>灰度测试</li>
+</ul>
+<p>灰度测试是指在黑与白之间，能够平滑过渡的一种部署方式基础上做的测试。AB test就是一种灰度部署方式，让一部分用户继续用A，一部分用户开始用B，如果用户对B没有什么反对意见，那么逐步扩大范围，把所有用户都迁移到B上面来。<br>灰度部署可以保证整体系统的稳定，在初始灰度的时候就可以发现、调整问题，以保证其影响度。</p>
+<p>我们的系统可以通过这几种方式进行灰度</p>
+<p>入口灰度、服务灰度、以及数据库灰度</p>
+<p>数据库灰度这里不做讨论，业界基本没有完全可行的解决方案（如灰度用户）！</p>
+<p>这里讨论的是入口灰度和服务灰度</p>
+<ul>
+<li>平滑部署</li>
+</ul>
+<p>平滑部署，指部署过程不停机即可实现服务的升级，要区别于平滑发布这个概念。</p>
+<p>准备<br>指定一批（套）服务为灰度发布服务，每次灰度发布时首先更新这批机器<br>因此要求所有的服务要有备份，即服务必须部署2个以上</p>
+<p>如下图示：<br><img src="http://onaqzli6n.bkt.clouddn.com/14906834107816.png" alt=""></p>
+<p>步骤</p>
+<ol>
+<li><p>通过程序统一修改服务的版本号为灰度发布版本号 如0.0.0，区别于1.1.1的正式版本</p>
+</li>
+<li><p>进行灰度测试 </p>
+</li>
+<li><p>通过灰度测试后，ngnix reload 切换为灰度机器，此时原灰度机器正式对外，且0.0.0被认为是正式版本号，而1.1.1变为下次灰度测试的版本</p>
+</li>
+<li><p>发布其他被替换下来的服务为新版本并分别上线</p>
+</li>
+<li><p>剩余face-web的上线</p>
+</li>
+</ol>
+<p>以发布finance为例，尽量简化过程<br><img src="http://onaqzli6n.bkt.clouddn.com/14906835833854.png" alt=""></p>
+<p><img src="http://onaqzli6n.bkt.clouddn.com/14906836026972.png" alt=""></p>
+<p><img src="http://onaqzli6n.bkt.clouddn.com/14906836356449.png" alt=""></p>
+<p><img src="http://onaqzli6n.bkt.clouddn.com/14906837414361.png" alt=""></p>
+<p>Q&amp;A：<br>1、face-web如何切换<br>根据流量选择部分face-web下线，通过ngnix的reload 动态切换<br>2、灰度发布的版本号是多少？<br>有两个0.0.0 和1.1.1<br>3、看起来步骤还是很复杂，有没有简单点的动作完成<br>首先灰度发布本身就是复杂的内容，想要精简内容已近无可能。<br>但是从流程上我们可以通过可视化界面，将多个步骤合成，从而简化我们的发布流程，从而缩短发布时间。</p>
+<p>4、使用脚本将预灰度的web服务停止并将新的web服务启动，此时 的web服务版本号与线上服务区分开来</p>
 
       
     </div>
@@ -408,8 +439,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/17/lpGGPG/" rel="next" title="研发中心管理办法规定">
-                <i class="fa fa-chevron-left"></i> 研发中心管理办法规定
+              <a href="/2017/03/27/projectMgr-01/" rel="next" title="项目管理（一）">
+                <i class="fa fa-chevron-left"></i> 项目管理（一）
               </a>
             
           </div>
@@ -417,10 +448,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/27/projectMgr-01/" rel="prev" title="项目管理（一）">
-                项目管理（一） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -467,8 +494,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -530,6 +566,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#如何利用dubbo进行平滑部署"><span class="nav-number">1.</span> <span class="nav-text">如何利用dubbo进行平滑部署</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
