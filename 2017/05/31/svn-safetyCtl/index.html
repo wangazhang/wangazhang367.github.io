@@ -1,0 +1,750 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="管理," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="svn内控计划内控计划是出于安全问题的考虑以及流程化管理需要，svn管理组决定对现有svn管理做进一步的管控。
+开始前，先对当前svn管理状况做一个梳理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="svn内控计划">
+<meta property="og:url" content="https://wangazhang.github.io/2017/05/31/svn-safetyCtl/index.html">
+<meta property="og:site_name" content="王阿章’博客">
+<meta property="og:description" content="svn内控计划内控计划是出于安全问题的考虑以及流程化管理需要，svn管理组决定对现有svn管理做进一步的管控。
+开始前，先对当前svn管理状况做一个梳理">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/14961959803421.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/14961960583958.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/14961973617223.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/14962143042432.jpg">
+<meta property="og:updated_time" content="2017-07-18T12:14:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="svn内控计划">
+<meta name="twitter:description" content="svn内控计划内控计划是出于安全问题的考虑以及流程化管理需要，svn管理组决定对现有svn管理做进一步的管控。
+开始前，先对当前svn管理状况做一个梳理">
+<meta name="twitter:image" content="http://onaqzli6n.bkt.clouddn.com/14961959803421.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wangazhang.github.io/2017/05/31/svn-safetyCtl/"/>
+
+
+
+
+
+  <title> svn内控计划 | 王阿章’博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王阿章’博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">the blog of wangazhang</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://wangazhang.github.io/2017/05/31/svn-safetyCtl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangazhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王阿章’博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                svn内控计划
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-31T09:28:45+08:00">
+                2017-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="svn内控计划"><a href="#svn内控计划" class="headerlink" title="svn内控计划"></a>svn内控计划</h1><p>内控计划是出于安全问题的考虑以及流程化管理需要，svn管理组决定对现有svn管理做进一步的管控。</p>
+<p>开始前，先对当前svn管理状况做一个梳理</p>
+<a id="more"></a>
+<h2 id="当前状况梳理"><a href="#当前状况梳理" class="headerlink" title="当前状况梳理"></a>当前状况梳理</h2><h3 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h3><p><img src="http://onaqzli6n.bkt.clouddn.com/14961959803421.jpg" alt=""></p>
+<p>目前tags，及trunk没有使用（应该是出于简化流程和更快的迭代考虑）</p>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><p><img src="http://onaqzli6n.bkt.clouddn.com/14961960583958.jpg" alt=""></p>
+<h3 id="项目命名规则"><a href="#项目命名规则" class="headerlink" title="项目命名规则"></a>项目命名规则</h3><p><code>face-域.项目（服务）-service</code></p>
+<p>如face-sc.community-service  为社群项目</p>
+<h3 id="分支命名规则"><a href="#分支命名规则" class="headerlink" title="分支命名规则"></a>分支命名规则</h3><p><code>face-域.项目（服务）-service-日期-本分支摘要-分支项目拉取人名称</code></p>
+<p>如face-sc.community-service-0526-community12-lvxc</p>
+<p>各个参数以 ‘-’ 分割</p>
+<h4 id="参数解释："><a href="#参数解释：" class="headerlink" title="参数解释："></a>参数解释：</h4><p><img src="http://onaqzli6n.bkt.clouddn.com/14961973617223.jpg" alt=""></p>
+<h3 id="当前申请规范"><a href="#当前申请规范" class="headerlink" title="当前申请规范"></a>当前申请规范</h3><p>（插入申请邮件表格）</p>
+<h3 id="当前开发流程"><a href="#当前开发流程" class="headerlink" title="当前开发流程"></a>当前开发流程</h3><p>（插入流程图）</p>
+<h2 id="重建管理规则"><a href="#重建管理规则" class="headerlink" title="重建管理规则"></a>重建管理规则</h2><p>对于本次规则重建我们希望做到以下几点</p>
+<ul>
+<li>不暴露未涉及的开发项目</li>
+<li>svn的变动不应有大的学习成本</li>
+</ul>
+<p>出于安全原因，我们将采用最小开放原则，即不暴露未涉及的开发项目，小伙伴将只能看见和提交自己当前开发的工程（项目）。svn管理规则的变动不应有大的学习成本。</p>
+<p>本次重建可以用以下几个数字来概括</p>
+<blockquote>
+<p>22n，也即2种角色、2种权限、n个分组</p>
+</blockquote>
+<h3 id="2种角色"><a href="#2种角色" class="headerlink" title="2种角色"></a>2种角色</h3><pre><code>角色不应随着事业部增多而发生变化
+
+我们将角色分为 开发类角色和管理类角色
+
+按功能取名为
+- 开发组角色
+- 工程owner角色
+</code></pre><p>由于svn只有组管理，而没有角色管理的功能，因此对应划分到组管理。比如我们会有X事业部，那么就有‘X事业部开发组’这个组别，同时 X事业部会有一个或者多个其所要开展的项目所产生的工程，那么每个不同的工程将有一个 owner。owner由项目建立只初由团队leader确定，并维护在conflence上：<br><a href="http://192.168.1.39:8090/pages/viewpage.action?pageId=23463301" target="_blank" rel="external">http://192.168.1.39:8090/pages/viewpage.action?pageId=23463301</a><br>比如face-pj.fishpond-feed-service的owner为linenliang，face-pj.fishpond-feed-service项目的owner为yuxin。</p>
+<p>owner是工程的所有者，其他团队要进行该工程的开发工作必须通过owner的授权，owner也有义务知晓工程内的所有改变。</p>
+<h3 id="两种权限"><a href="#两种权限" class="headerlink" title="两种权限:"></a>两种权限:</h3><pre><code>两个角色分别对应两种权限，开发组角色对应项目开发权限、项目owner角色对应项目管理权限。
+
+1. 项目开发权限:读写项目分支权限，包括读取分支,合并分支到stable，提交修改到分支
+    （对应为某一项目分支的读写权限及stable的读写权限）
+
+2. 项目管理权限:在项目开发权限的基础上，增加了对整个项目管理的权限，具体表现在可以拉取分支
+    （对应为某一项目的读写权限）
+</code></pre><h3 id="n个分组"><a href="#n个分组" class="headerlink" title="n个分组"></a>n个分组</h3><pre><code>根据实际事业部的数目，确定开发组的数目
+
+
+为了使工程具备自我管理的能力，一个工程仅有一个owner，而owner由该工程的最初创建团队自己确定，没有最初创建小组的（如历史已创建项目）则由svn管理小组指定
+
+因此会有以下等式
+
+- 工程数≥owner数
+
+- 事业部个数=项目开发组数
+</code></pre><p>（插入组管理表格）<br><a href="http://192.168.1.39:8090/pages/viewpage.action?pageId=25789650" target="_blank" rel="external">http://192.168.1.39:8090/pages/viewpage.action?pageId=25789650</a><br>（插入工程列表地址，工程的增加需要同步该表，责任到人）<br><a href="http://192.168.1.39:8090/pages/viewpage.action?pageId=23463301" target="_blank" rel="external">http://192.168.1.39:8090/pages/viewpage.action?pageId=23463301</a></p>
+<h3 id="新的流程"><a href="#新的流程" class="headerlink" title="新的流程"></a>新的流程</h3><p>我们坚持svn的变动不应有大的学习成本的要求，新的流程并没有改变小伙伴的习惯</p>
+<h4 id="操作1：新工程的建立"><a href="#操作1：新工程的建立" class="headerlink" title="操作1：新工程的建立"></a>操作1：新工程的建立</h4><p>发送如下邮件进行申请<br>发件人：新工程的负责人，一般是项目负责人<br>收件人：svnmg<br>抄送：郑俊平<br>标题：【新工程申请】关于新建face-sc.community-service工程的申请<br>内容模板：<br><img src="http://onaqzli6n.bkt.clouddn.com/14962143042432.jpg" alt=""></p>
+<p>svn小组动作：<br>在sc下新建一个以face-sc.community-service命名的工程结构文件夹，也即包含branches、tags、trunk子文件夹的文件夹，并按要求给予权限</p>
+<h4 id="操作2：老工程新拉分支"><a href="#操作2：老工程新拉分支" class="headerlink" title="操作2：老工程新拉分支"></a>操作2：老工程新拉分支</h4><p>发送如下邮件进行申请<br>svn小组动作<br>说明</p>
+<h4 id="操作3：老分支开发"><a href="#操作3：老分支开发" class="headerlink" title="操作3：老分支开发"></a>操作3：老分支开发</h4><p>发送如下邮件进行申请<br>svn小组动作<br>说明</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/管理/" rel="tag"># 管理</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/23/disTr/" rel="next" title="关于分布式事务那点事">
+                <i class="fa fa-chevron-left"></i> 关于分布式事务那点事
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/09/dsup/" rel="prev" title="dsup开发流程">
+                dsup开发流程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="wangazhang" />
+          <p class="site-author-name" itemprop="name">wangazhang</p>
+           
+              <p class="site-description motion-element" itemprop="description">something to do,but something not</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#svn内控计划"><span class="nav-number">1.</span> <span class="nav-text">svn内控计划</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#当前状况梳理"><span class="nav-number">1.1.</span> <span class="nav-text">当前状况梳理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#名词解释"><span class="nav-number">1.1.1.</span> <span class="nav-text">名词解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目录结构"><span class="nav-number">1.1.2.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目命名规则"><span class="nav-number">1.1.3.</span> <span class="nav-text">项目命名规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支命名规则"><span class="nav-number">1.1.4.</span> <span class="nav-text">分支命名规则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参数解释："><span class="nav-number">1.1.4.1.</span> <span class="nav-text">参数解释：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当前申请规范"><span class="nav-number">1.1.5.</span> <span class="nav-text">当前申请规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当前开发流程"><span class="nav-number">1.1.6.</span> <span class="nav-text">当前开发流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重建管理规则"><span class="nav-number">1.2.</span> <span class="nav-text">重建管理规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2种角色"><span class="nav-number">1.2.1.</span> <span class="nav-text">2种角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两种权限"><span class="nav-number">1.2.2.</span> <span class="nav-text">两种权限:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#n个分组"><span class="nav-number">1.2.3.</span> <span class="nav-text">n个分组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新的流程"><span class="nav-number">1.2.4.</span> <span class="nav-text">新的流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#操作1：新工程的建立"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">操作1：新工程的建立</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作2：老工程新拉分支"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">操作2：老工程新拉分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作3：老分支开发"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">操作3：老分支开发</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wangazhang</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

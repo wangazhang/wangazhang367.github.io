@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="系列," />
+  <meta name="keywords" content="管理," />
 
 
 
@@ -87,16 +87,39 @@
 
 
 
-<meta name="description" content="#开场问题#上期遗留了2个问题如何查看网络流量问题redis为什么会不进行增量，而选择全量的复制">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于redis的那些事（二）">
-<meta property="og:url" content="https://wangazhang.github.io/2017/03/22/something-of-redis-02/index.html">
+<meta property="og:title" content="dsup开发流程">
+<meta property="og:url" content="https://wangazhang.github.io/2017/07/09/dsup/index.html">
 <meta property="og:site_name" content="王阿章’博客">
-<meta property="og:description" content="#开场问题#上期遗留了2个问题如何查看网络流量问题redis为什么会不进行增量，而选择全量的复制">
-<meta property="og:updated_time" content="2017-04-20T02:19:16.000Z">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022409447523.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022409643817.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022409747136.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022409862916.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022410078486.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022410256400.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022410396407.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022410455569.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022410517815.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022410582631.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022410762661.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022410932849.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022410990186.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022411054107.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022411140609.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022411193237.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022411248551.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022411382518.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022411499529.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022411545451.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022411451874.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022411600392.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022411665197.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022411858283.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15022411952180.jpg">
+<meta property="og:updated_time" content="2017-08-09T01:18:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于redis的那些事（二）">
-<meta name="twitter:description" content="#开场问题#上期遗留了2个问题如何查看网络流量问题redis为什么会不进行增量，而选择全量的复制">
+<meta name="twitter:title" content="dsup开发流程">
+<meta name="twitter:image" content="http://onaqzli6n.bkt.clouddn.com/15022409447523.jpg">
 
 
 
@@ -124,13 +147,13 @@
 
 
 
-  <link rel="canonical" href="https://wangazhang.github.io/2017/03/22/something-of-redis-02/"/>
+  <link rel="canonical" href="https://wangazhang.github.io/2017/07/09/dsup/"/>
 
 
 
 
 
-  <title> 关于redis的那些事（二） | 王阿章’博客 </title>
+  <title> dsup开发流程 | 王阿章’博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -259,7 +282,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://wangazhang.github.io/2017/03/22/something-of-redis-02/">
+    <link itemprop="mainEntityOfPage" href="https://wangazhang.github.io/2017/07/09/dsup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wangazhang">
@@ -280,7 +303,7 @@
             
             
               
-                关于redis的那些事（二）
+                dsup开发流程
               
             
           </h1>
@@ -295,8 +318,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-22T17:08:49+08:00">
-                2017-03-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-09T09:14:09+08:00">
+                2017-07-09
               </time>
             
 
@@ -353,10 +376,14 @@
       
 
       
-        <p>#开场问题#<br>上期遗留了2个问题<br>如何查看网络流量问题<br>redis为什么会不进行增量，而选择全量的复制<br><a id="more"></a></p>
-<p>##如何查看网络流量问题<br>这个有多个工具，我这边给大家推荐的是’nload’</p>
-<p>上个图</p>
-<p>##redis为什么会不进行增量，而选择全量的复制</p>
+        <h1 id=""><a href="#" class="headerlink" title=""></a><img src="http://onaqzli6n.bkt.clouddn.com/15022409447523.jpg" alt=""></h1><a id="more"></a>
+<p><img src="http://onaqzli6n.bkt.clouddn.com/15022409643817.jpg" alt=""></p>
+<p><img src="http://onaqzli6n.bkt.clouddn.com/15022409747136.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15022409862916.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15022410078486.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15022410256400.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15022410396407.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15022410455569.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15022410517815.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15022410582631.jpg" alt=""></p>
+<p><img src="http://onaqzli6n.bkt.clouddn.com/15022410762661.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15022410932849.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15022410990186.jpg" alt=""></p>
+<p><img src="http://onaqzli6n.bkt.clouddn.com/15022411054107.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15022411140609.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15022411193237.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15022411248551.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15022411382518.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15022411499529.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15022411545451.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15022411451874.jpg" alt=""></p>
+<p><img src="http://onaqzli6n.bkt.clouddn.com/15022411600392.jpg" alt=""></p>
+<p><img src="http://onaqzli6n.bkt.clouddn.com/15022411665197.jpg" alt=""></p>
+<p><img src="http://onaqzli6n.bkt.clouddn.com/15022411858283.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15022411952180.jpg" alt=""></p>
 
       
     </div>
@@ -386,7 +413,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/系列/" rel="tag"># 系列</a>
+            <a href="/tags/管理/" rel="tag"># 管理</a>
           
         </div>
       
@@ -399,8 +426,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/17/lpGGPG/" rel="next" title="研发中心管理办法规定">
-                <i class="fa fa-chevron-left"></i> 研发中心管理办法规定
+              <a href="/2017/05/31/svn-safetyCtl/" rel="next" title="svn内控计划">
+                <i class="fa fa-chevron-left"></i> svn内控计划
               </a>
             
           </div>
@@ -408,10 +435,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/27/projectMgr-01/" rel="prev" title="项目管理（一）">
-                项目管理（一） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -458,8 +481,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -521,6 +553,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

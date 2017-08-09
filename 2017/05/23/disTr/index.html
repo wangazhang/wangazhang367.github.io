@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="系列," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="#开场问题#上期遗留了2个问题如何查看网络流量问题redis为什么会不进行增量，而选择全量的复制">
+<meta name="description" content="关于分布式事务那点事大约n年前吧，由于公司需要，在tcc的基础上设计并实现了分布式事务，保证了业务流程即使在极端恶劣的环境下也可以保证事务的一致。之前曾经去到一个看起来非常nb的互联网公司去面试，面试官问到了分布式事务的问题，当时我就来了兴趣，将自己设计的那套系统搬出来，一五一十的介绍给了那两位面试官（实话说，我觉得那个时候我说话还是很谨慎的，很尊重那两位面试官的）。结果他们居然不理解我的设计，一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于redis的那些事（二）">
-<meta property="og:url" content="https://wangazhang.github.io/2017/03/22/something-of-redis-02/index.html">
+<meta property="og:title" content="关于分布式事务那点事">
+<meta property="og:url" content="https://wangazhang.github.io/2017/05/23/disTr/index.html">
 <meta property="og:site_name" content="王阿章’博客">
-<meta property="og:description" content="#开场问题#上期遗留了2个问题如何查看网络流量问题redis为什么会不进行增量，而选择全量的复制">
-<meta property="og:updated_time" content="2017-04-20T02:19:16.000Z">
+<meta property="og:description" content="关于分布式事务那点事大约n年前吧，由于公司需要，在tcc的基础上设计并实现了分布式事务，保证了业务流程即使在极端恶劣的环境下也可以保证事务的一致。之前曾经去到一个看起来非常nb的互联网公司去面试，面试官问到了分布式事务的问题，当时我就来了兴趣，将自己设计的那套系统搬出来，一五一十的介绍给了那两位面试官（实话说，我觉得那个时候我说话还是很谨慎的，很尊重那两位面试官的）。结果他们居然不理解我的设计，一">
+<meta property="og:updated_time" content="2017-08-09T01:37:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于redis的那些事（二）">
-<meta name="twitter:description" content="#开场问题#上期遗留了2个问题如何查看网络流量问题redis为什么会不进行增量，而选择全量的复制">
+<meta name="twitter:title" content="关于分布式事务那点事">
+<meta name="twitter:description" content="关于分布式事务那点事大约n年前吧，由于公司需要，在tcc的基础上设计并实现了分布式事务，保证了业务流程即使在极端恶劣的环境下也可以保证事务的一致。之前曾经去到一个看起来非常nb的互联网公司去面试，面试官问到了分布式事务的问题，当时我就来了兴趣，将自己设计的那套系统搬出来，一五一十的介绍给了那两位面试官（实话说，我觉得那个时候我说话还是很谨慎的，很尊重那两位面试官的）。结果他们居然不理解我的设计，一">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://wangazhang.github.io/2017/03/22/something-of-redis-02/"/>
+  <link rel="canonical" href="https://wangazhang.github.io/2017/05/23/disTr/"/>
 
 
 
 
 
-  <title> 关于redis的那些事（二） | 王阿章’博客 </title>
+  <title> 关于分布式事务那点事 | 王阿章’博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -259,7 +259,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://wangazhang.github.io/2017/03/22/something-of-redis-02/">
+    <link itemprop="mainEntityOfPage" href="https://wangazhang.github.io/2017/05/23/disTr/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wangazhang">
@@ -280,7 +280,7 @@
             
             
               
-                关于redis的那些事（二）
+                关于分布式事务那点事
               
             
           </h1>
@@ -295,8 +295,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-22T17:08:49+08:00">
-                2017-03-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-23T16:03:39+08:00">
+                2017-05-23
               </time>
             
 
@@ -305,28 +305,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术分享/" itemprop="url" rel="index">
-                    <span itemprop="name">技术分享</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -353,10 +331,21 @@
       
 
       
-        <p>#开场问题#<br>上期遗留了2个问题<br>如何查看网络流量问题<br>redis为什么会不进行增量，而选择全量的复制<br><a id="more"></a></p>
-<p>##如何查看网络流量问题<br>这个有多个工具，我这边给大家推荐的是’nload’</p>
-<p>上个图</p>
-<p>##redis为什么会不进行增量，而选择全量的复制</p>
+        <h1 id="关于分布式事务那点事"><a href="#关于分布式事务那点事" class="headerlink" title="关于分布式事务那点事"></a>关于分布式事务那点事</h1><p>大约n年前吧，由于公司需要，在tcc的基础上设计并实现了分布式事务，保证了业务流程即使在极端恶劣的环境下也可以保证事务的一致。之前曾经去到一个看起来非常nb的互联网公司去面试，面试官问到了分布式事务的问题，当时我就来了兴趣，将自己设计的那套系统搬出来，一五一十的介绍给了那两位面试官（实话说，我觉得那个时候我说话还是很谨慎的，很尊重那两位面试官的）。结果他们居然不理解我的设计，一味重复着我觉得我自己觉得已经解答了的问题。我尝试从多个层面去解释给他们，但是他们似乎并不买账。后来我仔细研究了二阶段提交，明白了原来，这两位面试官只是学院派。<br>接下来我会用浅显易懂的方式（就是不忽悠），帮助各位落地分布式事务的解决方案。<br>我将围绕以下几个问题展开讨论<br>1、分布式事务问题是如何产生的<br>2、业界的解决方案有什么<br>3、我的设计方案是什么<br>4、更优的设计方案有哪些<br><a id="more"></a><br>这里首先扫个盲</p>
+<ul>
+<li>XA<br><code>XA：XA协议由Tuxedo首先提出的，并交给X/Open组织，作为资源管理器（数据库）与事务管理器的接口标准。目前，Oracle、Informix、DB2和Sybase等各大数据库厂家都提供对XA的支持。XA协议采用两阶段提交方式来管理分布式事务。XA接口提供资源管理器与事务管理器之间进行通信的标准接口。</code></li>
+<li>ACID<br><code>Atomicity-原子性：一个事务中所有操作都必须全部完成，要么全部不完成。
+Consistency一致性. 在事务开始或结束时，数据库应该在一致状态。
+Isolation隔离层. 事务将假定只有它自己在操作数据库，彼此不知晓。
+Durability. 一旦事务完成，就不能返回。</code><br>##1、分布式事务问题是如何产生的<br>###本地事务<br>轻量级的事务管理器<br>###简单跨库事务<br>简单跨库事务，简单的说就事务包含了n（n≥2）个库的操作，且操作满足事务的要求ACID【也就是常说的一致性，原子性，持久性】，且该服务可以持有多个库的源。<br>列个清单：</li>
+<li>事务包含n（n≥2）个库的操作</li>
+<li>ACID</li>
+<li>服务可以持有事务包含的所有数据源</li>
+</ul>
+<p>这类事务的解决方案很多，也很简单，大部分关系型数据库都实现了XA，只要有一个事务管理器去调度该应用中各个数据源进行子事务的操作即可。业界典型的实现就是Atomikos</p>
+<p>很显然，最后一点决定了它的事务是简单事务，因为在分布式系统中，要求系统是服务化，不可能存在项目是可以持有多个跨领域数据源的。比方说订单服务和库存服务不可能同时存在于一个工程，这个不符合服务化项目的要求</p>
+<p>###跨服务事务（RPC）</p>
+<p><a href="http://www.jianshu.com/p/252327c9c881" target="_blank" rel="external">http://www.jianshu.com/p/252327c9c881</a></p>
 
       
     </div>
@@ -384,12 +373,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/系列/" rel="tag"># 系列</a>
-          
-        </div>
-      
 
       
         
@@ -399,8 +382,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/17/lpGGPG/" rel="next" title="研发中心管理办法规定">
-                <i class="fa fa-chevron-left"></i> 研发中心管理办法规定
+              <a href="/2017/04/01/distributed-transaction-01/" rel="next" title="分布式事务_01">
+                <i class="fa fa-chevron-left"></i> 分布式事务_01
               </a>
             
           </div>
@@ -409,8 +392,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/27/projectMgr-01/" rel="prev" title="项目管理（一）">
-                项目管理（一） <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/31/svn-safetyCtl/" rel="prev" title="svn内控计划">
+                svn内控计划 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -458,8 +441,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -521,6 +513,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于分布式事务那点事"><span class="nav-number">1.</span> <span class="nav-text">关于分布式事务那点事</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
