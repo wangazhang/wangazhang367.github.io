@@ -87,15 +87,25 @@
 
 
 
-<meta name="description" content="something to do,but something not">
-<meta property="og:type" content="website">
-<meta property="og:title" content="王阿章’博客">
-<meta property="og:url" content="https://wangazhang.github.io/tags/社区运营/index.html">
+<meta name="description" content="理财服务横跨多个服务，如颜值服务，支付服务，订单服务等等。在基于稳定和性能的基础上，基于二段式事务，和补偿事务，实现了高可用的理财服务。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于分布式事务的理财分布式事务设计">
+<meta property="og:url" content="https://wangazhang.github.io/2016/10/11/lp-distributedTransaction-fc/index.html">
 <meta property="og:site_name" content="王阿章’博客">
-<meta property="og:description" content="something to do,but something not">
+<meta property="og:description" content="理财服务横跨多个服务，如颜值服务，支付服务，订单服务等等。在基于稳定和性能的基础上，基于二段式事务，和补偿事务，实现了高可用的理财服务。">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15024140017080.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15024147563101.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15024147834604.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15024148032280.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15024148220078.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15024148378365.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15024148506593.jpg">
+<meta property="og:image" content="http://onaqzli6n.bkt.clouddn.com/15024141032518.jpg">
+<meta property="og:updated_time" content="2017-08-11T01:28:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="王阿章’博客">
-<meta name="twitter:description" content="something to do,but something not">
+<meta name="twitter:title" content="基于分布式事务的理财分布式事务设计">
+<meta name="twitter:description" content="理财服务横跨多个服务，如颜值服务，支付服务，订单服务等等。在基于稳定和性能的基础上，基于二段式事务，和补偿事务，实现了高可用的理财服务。">
+<meta name="twitter:image" content="http://onaqzli6n.bkt.clouddn.com/15024140017080.jpg">
 
 
 
@@ -123,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://wangazhang.github.io/tags/社区运营/"/>
+  <link rel="canonical" href="https://wangazhang.github.io/2016/10/11/lp-distributedTransaction-fc/"/>
 
 
 
 
 
-  <title> Tag: 社区运营 | 王阿章’博客 </title>
+  <title> 基于分布式事务的理财分布式事务设计 | 王阿章’博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -154,7 +164,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -248,46 +258,153 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        社区运营
-        <small>Tag</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://wangazhang.github.io/2016/10/11/lp-distributedTransaction-fc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangazhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王阿章’博客">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                基于分布式事务的理财分布式事务设计
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-11T09:09:17+08:00">
+                2016-10-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>理财服务横跨多个服务，如颜值服务，支付服务，订单服务等等。在基于稳定和性能的基础上，基于二段式事务，和补偿事务，实现了高可用的理财服务。<br><a id="more"></a></p>
+<p>#表设计<br><img src="http://onaqzli6n.bkt.clouddn.com/15024140017080.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15024147563101.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15024147834604.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15024148032280.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15024148220078.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15024148378365.jpg" alt=""><br><img src="http://onaqzli6n.bkt.clouddn.com/15024148506593.jpg" alt=""></p>
+<p>#支付流程</p>
+<p><img src="http://onaqzli6n.bkt.clouddn.com/15024141032518.jpg" alt=""></p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/03/31/communityManage-01/" itemprop="url">
-              
-                <span itemprop="name">社区运营-01</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-31T17:30:59+08:00"
-              content="2017-03-31" >
-          03-31
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/16/something-of-redis-01/" rel="prev" title="关于redis的那些事（一）">
+                关于redis的那些事（一） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -295,6 +412,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -482,6 +603,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
